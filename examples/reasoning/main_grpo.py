@@ -37,6 +37,7 @@ mp.set_start_method("spawn", force=True)
 @hydra.main(version_base="1.1")
 @output_redirector
 def main(cfg) -> None:
+    print("success"*10)
     cfg = validate_cfg(cfg)
     print(json.dumps(OmegaConf.to_container(cfg, resolve=True), indent=2))
 

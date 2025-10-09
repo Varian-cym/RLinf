@@ -84,7 +84,7 @@ rollout:
 
   gpu_memory_utilization: 0.55
 
-  model_dir: /mnt/public/hf_models/qwen2.5-VL-3B/
+  model_dir: /home/weight/Qwen2.5-1.5B-Instruct
   model_arch: qwen2.5
   enforce_eager: False         # if False, rollout engine will capture cuda graph, which will take more time to initialize.
   distributed_executor_backend: mp   # ray or mp
@@ -93,7 +93,7 @@ rollout:
   padding: null               # will be tokenizer.pad_token_id if null. it is used to filter megatron's padding for rollout engine
   eos: null                   # will be tokenizer.eos_token_id if null.
     
-  rollout_backend: vllm     # here choose which backend to rollout,support [sglang, vllm] 
+  rollout_backend: sglang     # here choose which backend to rollout,support [sglang, vllm] 
 
   sglang:
     attention_backend: triton # [flashinfer, triton] for more, see sglang's doc
@@ -130,8 +130,8 @@ data:
   shuffle: True
   validation_shuffle: True
   seed: 1234
-  train_data_paths: ["/mnt/public/daibo/dataset/robo2vlm-1/data/"]
-  val_data_paths: ["/mnt/public/daibo/dataset/robo2vlm-1/data/"]
+  train_data_paths: ["/home/dataset/boba"]
+  val_data_paths: ["/home/dataset/boba"]
   prompt_key: question
   image_keys: [image]
   answer_key: answer
@@ -195,7 +195,7 @@ actor:
     lr_decay_iters: 10
 
   tokenizer:
-    tokenizer_model: /mnt/public/hf_models/qwen2.5-VL-3B/
+    tokenizer_model: /home/weight/Qwen2.5-1.5B-Instruct
     use_fast: False
     trust_remote_code: True
     padding_side: 'right'

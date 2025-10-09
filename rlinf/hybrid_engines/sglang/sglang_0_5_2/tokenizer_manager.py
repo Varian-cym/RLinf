@@ -17,9 +17,9 @@ from typing import List, Optional
 import fastapi
 from sglang.srt.managers.io_struct import AbortReq
 from sglang.srt.managers.tokenizer_manager import TokenizerManager as _TokenizerManager
-from sglang.srt.managers.tokenizer_manager import _Communicator
+#from sglang.srt.managers.tokenizer_manager import _Communicator
+from sglang.srt.managers.tokenizer_communicator_mixin import _Communicator
 from sglang.srt.server_args import PortArgs, ServerArgs
-
 from .io_struct import (
     OffloadReqInput,
     OffloadReqOutput,
